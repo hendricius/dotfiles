@@ -1,0 +1,17 @@
+# Git aliases <3
+alias gpl='git pull'
+alias gps='git push'
+alias gst='git status'
+alias gci='git commit'
+alias gca='git commit -a'
+alias gdf='git diff'
+alias gdc='git diff --cached'
+alias gad='git add'
+alias gap='git add --patch'
+alias gri='git rebase -i'
+
+#
+alias sshh='ssh server1.hendricius.com'
+alias sshot='ssh testorderpass@test.orderpass.com'
+alias sshol='ssh orderpass@test.orderpass.com'
+alias rdms='rake db:drop && rake db:migrate && rake db:seed'

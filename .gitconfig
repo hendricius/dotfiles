@@ -1,0 +1,5 @@
+[core]
+  autocrlf = false
+[user]
+  name = Hendrik Kleinwaechter
+  email = hendrik.kleinwaechter@gmail.com
