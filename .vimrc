@@ -29,7 +29,8 @@ set background=dark
 
 " Color scheme
 set t_Co=256
-colorscheme sunburst
+"colorscheme sunburst
+colorscheme base16-default
 " colorscheme molokai
 
 " Display line numbers
@@ -173,3 +174,10 @@ imap [ []<left>
 imap ,/ </<C-X><C-O>
 
 set hlsearch
+
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show unicode glyphs
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
