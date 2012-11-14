@@ -10,8 +10,10 @@ alias gad='git add'
 alias gap='git add --patch'
 alias gri='git rebase -i'
 
-#
-alias sshh='ssh server1.hendricius.com'
-alias sshot='ssh testorderpass@test.orderpass.com'
-alias sshol='ssh orderpass@test.orderpass.com'
-alias rdms='rake db:drop && rake db:migrate && rake db:seed'
+# General aliases
+alias be='bundle exec'
+alias dms='bundle exec rake db:drop && bundle exec rake db:schema:load && bundle exec rake db:seed'
+alias gmj='gco develop && git push origin develop && gco master && git pull origin master && gm develop && git push origin master && gco en && git pull origin en && gm master && git push origin en && gco de && git pull origin de && gm master && git push origin develop de && gco develop'
+
+# mac related
+alias chromeunsafe='open -a Google\ Chrome --args --disable-web-security'
