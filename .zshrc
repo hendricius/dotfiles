@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH=$PATH:~/.local/opt/android-sdk-linux_86/tools:~/bin
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -28,8 +32,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 # Misc exports
-export EDITOR=/usr/bin/vim
-export PATH=$PATH:~/.local/opt/android-sdk-linux_86/tools/:~/bin/
+export EDITOR=/usr/local/bin/vim
 export PAGER=less
 
 # Autoloads
