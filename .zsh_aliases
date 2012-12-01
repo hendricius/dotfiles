@@ -17,3 +17,7 @@ alias gmj='gco develop && git push origin develop && gco master && git pull orig
 
 # mac related
 alias chromeunsafe='open -a Google\ Chrome --args --disable-web-security'
+
+# Postgres
+alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
