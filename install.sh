@@ -1,22 +1,21 @@
 #!/bin/bash
 # Prerequesities
 # apt-get install git vim zsh tmux curl
-# chsh -s /bin/zsh
+# git clone git://github.com/hendricius/dotfiles.git
 
-
-# setup
+# setting vars
 cd
-git clone git://github.com/hendricius/dotfiles.git
-REPO=dotfiles/
+REPO=dotfiles
 BASE_PATH=$(pwd)
 REPO_PATH=$BASE_PATH/$REPO
-BKP_DIR=backup-config
-cd ~/
+FILES=( .gitconfig .gitignore_global .tmux.conf .vim .vimrc .zsh_aliases .zsh_autocomp .zshrc )
+BKP_DIR=dotfiles-backup
+
+# Create a backup dir.
 mkdir $BKP_DIR
 
 # replace existing files #
-
-for f in $REPO_PATH
+for f in "${FILES[@]}"
 do
   echo "taking care of $f ..."
   if [ -e "$f" ]; then
@@ -26,3 +25,12 @@ do
   echo "creating symlink for $f"
   ln -sf $REPO_PATH/$f $f
 done
+
+# Set empty app config var dir.
+touch .app_config_vars
+
+# Setup oh-my-zsh
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+# Don't forget to set zsh as shell. Restart
+# chsh -s /bin/zsh
