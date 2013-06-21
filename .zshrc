@@ -36,8 +36,8 @@ export PAGER=less
 
 # Autoloads
 autoload -U colors
-autoload -U compinit compinit
-compinit bashcompletion
+#autoload -U compinit compinit
+#compinit bashcompletion
 autoload -U zfinit
 autoload -U zmv
 
@@ -52,7 +52,7 @@ setopt noclobber # don't accidentally overwrite files with >
 setopt extendedglob
 
 # Auto completion
-source ~/.zsh_autocomp
+#source ~/.zsh_autocomp
 
 #Useful shortcuts (not SO useful if you use vi-mode, but still quite handy)
 typeset -g -A key
