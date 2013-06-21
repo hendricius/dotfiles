@@ -15,7 +15,7 @@ BKP_DIR=dotfiles-backup
 mkdir $BKP_DIR
 
 # Install oh-my-zsh
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 # replace existing files #
 for f in "${FILES[@]}"
