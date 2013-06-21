@@ -3,7 +3,6 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH=$PATH:~/.local/opt/android-sdk-linux_86/tools:~/bin
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -79,7 +78,14 @@ zle -N edit-command-line
 
 # Custom aliases
 source ~/.zsh_aliases
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export TERM="screen-256color"
+
+# Heroku toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Config vars for other applications.
+source ~/.app_config_vars

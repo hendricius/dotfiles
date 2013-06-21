@@ -95,7 +95,7 @@ imap <F1> <Esc>
 
 " Spell Check
 map <F2> :set spelllang=en_us spell<cr>
-map <F3> :set spelllang=fr spell<cr>
+map <F3> :set spelllang=de spell<cr>
 map <F4> :set nospell<cr>
 map <F5> :set spell<cr>
 
@@ -179,5 +179,31 @@ set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
 
+let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" Ignore jekyll site folder
+set wildignore+=*_site\/*
+
+" Paste toggle
+set pt=<f9>
+
+" Make tabs more readable
+hi TabLineSel ctermfg=1 ctermbg=0
+
+function! PhpTabs()
+  set tabstop=4
+  set softtabstop=4
+  set shiftwidth=4
+  set smarttab
+  set expandtab
+  set autoindent
+  set smartindent
+endfunction
+
+" show a line if text is getting too long
+set colorcolumn=+1 " highlight column after 'textwidth'
+" set the color to a dark grey
+highlight ColorColumn ctermbg=234
+

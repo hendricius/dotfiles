@@ -1,22 +1,28 @@
 #!/bin/bash
-apt-get install git vim zsh tmux curl
-cd ~/
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh
-| sh
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-chsh -s /bin/zsh
+# Prerequesities
+# apt-get install git vim zsh tmux curl
+# chsh -s /bin/zsh
+
+
+# setup
+cd
 git clone git://github.com/hendricius/dotfiles.git
+REPO=dotfiles/
+BASE_PATH=$(pwd)
+REPO_PATH=$BASE_PATH/$REPO
+BKP_DIR=backup-config
+cd ~/
+mkdir $BKP_DIR
 
 # replace existing files #
-cd ~/
-mkdir backup-config
-mv .vim* backup-config/
-mv .gitconfig backup-config/
-mv .tmux.conf backup-config/
-mv .zsh* backup-config/
-cd dotfiles
-cp -R .vim ../
-cp .git* ../
-cp .tmux* ../
-cp .vimrc ../
-cp .zsh* ../
+
+for f in $REPO_PATH
+do
+  echo "taking care of $f ..."
+  if [ -e "$f" ]; then
+    echo "$f already exists, backing up..."
+    mv $f $BKP_DIR
+  fi
+  echo "creating symlink for $f"
+  ln -sf $REPO_PATH/$f $f
+done
