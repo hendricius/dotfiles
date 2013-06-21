@@ -14,6 +14,9 @@ BKP_DIR=dotfiles-backup
 # Create a backup dir.
 mkdir $BKP_DIR
 
+# Install oh-my-zsh
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
 # replace existing files #
 for f in "${FILES[@]}"
 do
@@ -28,9 +31,6 @@ done
 
 # Set empty app config var dir.
 touch .app_config_vars
-
-# Setup oh-my-zsh
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 # Don't forget to set zsh as shell. Restart
 # chsh -s /bin/zsh
