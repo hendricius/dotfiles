@@ -34,6 +34,7 @@ Bundle 'mattn/emmet-vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/syntastic'
 Bundle 'msanders/snipmate.vim'
+Bundle 'kaichen/vim-snipmate-ruby-snippets'
 Bundle 'mattn/gist-vim'
 Bundle 'chriskempson/base16-vim'
 
