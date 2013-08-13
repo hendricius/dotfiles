@@ -37,8 +37,7 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'chriskempson/base16-vim'
 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+execute pathogen#infect()
 
 if has("syntax")
   syntax on
