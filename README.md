@@ -15,6 +15,7 @@ existing dotfiles and use mine instead.
     apt-get install git vim zsh tmux curl
     cd && git clone git://github.com/hendricius/dotfiles.git
     cd ~/dotfiles/
+    git submodule init
     ./install.sh
     cd
     touch .app_config_vars
