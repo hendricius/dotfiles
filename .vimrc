@@ -49,6 +49,7 @@ endif
 
 " Color scheme
 set t_Co=256
+set background=dark
 colorscheme base16-default
 
 " Display line numbers
