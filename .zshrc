@@ -87,5 +87,9 @@ export TERM="screen-256color"
 # Heroku toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+# Cabal Path
+export PATH="/Users/hendricius/.cabal/bin:$PATH"
+
 # Config vars for other applications.
 source ~/.app_config_vars
+source ~/.local_zsh_aliases
