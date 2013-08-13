@@ -1,7 +1,4 @@
 #!/bin/bash
-# Prerequesities
-# apt-get install git vim zsh tmux curl
-# git clone git://github.com/hendricius/dotfiles.git
 
 # setting vars
 cd
