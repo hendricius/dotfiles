@@ -1,37 +1,57 @@
-" Needed on some linux distros.
-" see http://www.adamlowe.me/2009/12/vim-destroys-all-other-rails-editors.html
-filetype off 
+filetype off
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle required!
+Bundle 'gmarik/vundle'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'nono/jquery.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ervandew/supertab'
+Bundle 'godlygeek/tabular'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'timcharper/textile.vim'
+Bundle 'skammer/vim-css-color'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-haml'
+Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-markdown'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'goldfeld/vim-seek'
+Bundle 'slim-template/vim-slim'
+Bundle 'tpope/vim-surround'
+Bundle 'sukima/xmledit'
+Bundle 'mattn/emmet-vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'scrooloose/syntastic'
+Bundle 'msanders/snipmate.vim'
+Bundle 'mattn/gist-vim'
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'chriskempson/base16-vim'
+
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
-" /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vim/vimrc), since debian.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing debian.vim since it alters the value of the
-" 'compatible' option.
-
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the
-" following enables syntax highlighting by default.
 if has("syntax")
   syntax on
 endif
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-set background=dark
+"set background=dark
 
 " Color scheme
 set t_Co=256
-"colorscheme sunburst
 colorscheme base16-default
-" colorscheme molokai
 
 " Display line numbers
 set number
@@ -100,7 +120,7 @@ map <F4> :set nospell<cr>
 map <F5> :set spell<cr>
 
 imap <F2> <ESC>:set spelllang=en_us spell<cr>a
-imap <F3> <ESC>:set spelllang=fr spell<cr>a
+imap <F3> <ESC>:set spelllang=de spell<cr>a
 imap <F4> <ESC>:set nospell<cr>a
 imap <F5> <ESC>:set spell<cr>a
 
@@ -206,4 +226,3 @@ endfunction
 set colorcolumn=+1 " highlight column after 'textwidth'
 " set the color to a dark grey
 highlight ColorColumn ctermbg=234
-
