@@ -35,7 +35,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/syntastic'
 Bundle 'msanders/snipmate.vim'
 Bundle 'mattn/gist-vim'
-Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'chriskempson/base16-vim'
 
 call pathogen#runtime_append_all_bundles()
