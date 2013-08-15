@@ -210,8 +210,8 @@ set wildignore+=*_site\/*
 " Paste toggle
 set pt=<f9>
 
-" Make tabs more readable
-hi TabLineSel ctermfg=1 ctermbg=0
+" different tab color
+hi TabLineSel ctermfg=Red ctermbg=Yellow
 
 function! PhpTabs()
   set tabstop=4
