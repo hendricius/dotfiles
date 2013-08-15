@@ -37,6 +37,7 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'kaichen/vim-snipmate-ruby-snippets'
 Bundle 'mattn/gist-vim'
 Bundle 'chriskempson/base16-vim'
+Bundle 'mattn/webapi-vim'
 
 execute pathogen#infect()
 
