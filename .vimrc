@@ -227,3 +227,7 @@ endfunction
 set colorcolumn=+1 " highlight column after 'textwidth'
 " set the color to a dark grey
 highlight ColorColumn ctermbg=234
+
+" Copy gists to clipboard by default
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
