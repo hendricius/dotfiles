@@ -3,6 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/share/npm/bin:$PATH"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
