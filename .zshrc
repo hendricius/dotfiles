@@ -3,7 +3,13 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+# Node
 export PATH="/usr/local/share/npm/bin:$PATH"
+# Heroku toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+# Cabal Path
+export PATH="/Users/hendricius/.cabal/bin:$PATH"
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -83,13 +89,7 @@ source ~/.zsh_aliases
 eval "$(rbenv init - zsh)"
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
-export TERM="screen-256color"
-
-# Heroku toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# Cabal Path
-export PATH="/Users/hendricius/.cabal/bin:$PATH"
+export TERM="xterm-256color"
 
 # Config vars for other applications.
 source ~/.app_config_vars
