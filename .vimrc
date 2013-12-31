@@ -237,7 +237,7 @@ let g:gist_detect_filetype = 1
 let mapleader = ","
 
 " Open the current Github link of the current line
-nnoremap <leader>c :.Gbrowse <CR>
+nnoremap <leader>o :.Gbrowse <CR>
 
 " Copy the current Github link of the current line
 nnoremap <leader>oc :.Gbrowse! <CR>
