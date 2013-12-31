@@ -234,3 +234,10 @@ highlight ColorColumn ctermbg=234
 " Copy gists to clipboard by default
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
+let mapleader = ","
+
+" Open the current Github link of the current line
+nnoremap <leader>c :.Gbrowse <CR>
+
+" Copy the current Github link of the current line
+nnoremap <leader>oc :.Gbrowse! <CR>
