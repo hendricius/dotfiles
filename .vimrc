@@ -51,11 +51,10 @@ endif
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-"set background=dark
+set background=dark
 
 " Color scheme
 set t_Co=256
-set background=dark
 colorscheme base16-default
 
 " Display line numbers
