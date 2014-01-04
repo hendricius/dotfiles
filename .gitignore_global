@@ -37,3 +37,6 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# ignore ctags
+tags

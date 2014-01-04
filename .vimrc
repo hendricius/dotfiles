@@ -241,3 +241,9 @@ nnoremap <leader>o :.Gbrowse <CR>
 
 " Copy the current Github link of the current line
 nnoremap <leader>oc :.Gbrowse! <CR>
+
+" CTAGS quirks for German keyboard
+" jump to tag on ä In normal mode
+map ä <C-]>
+" and jump back on ö
+map ö <C-t>
