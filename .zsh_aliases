@@ -26,3 +26,5 @@ alias zlog="git log --all --author='Hendrik' --reverse --format=%B --max-count=4
 
 # Other helpful
 alias log-today="vim $(date +%Y-%m-%d).md"
+
+alias f="find . -type f -name"
