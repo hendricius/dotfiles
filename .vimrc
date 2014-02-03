@@ -120,13 +120,13 @@ imap <F1> <Esc>
 " Spell Check
 map <F2> :set spelllang=en_us spell<cr>
 map <F3> :set spelllang=de spell<cr>
-map <F4> :set nospell<cr>
-map <F5> :set spell<cr>
+map <F4> :set spell<cr>
+map <F5> :set nospell<cr>
 
 imap <F2> <ESC>:set spelllang=en_us spell<cr>a
 imap <F3> <ESC>:set spelllang=de spell<cr>a
-imap <F4> <ESC>:set nospell<cr>a
-imap <F5> <ESC>:set spell<cr>a
+imap <F4> <ESC>:set spell<cr>a
+imap <F5> <ESC>:set nospell<cr>a
 
 " Snipmate info
 let g:snips_author = 'Hendrik Kleinwaechter'
