@@ -92,7 +92,7 @@ source ~/.zsh_aliases
 eval "$(rbenv init - zsh)"
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
-export TERM="xterm-256color"
+export TERM="screen-256color"
 
 # Config vars for other applications.
 source ~/.app_config_vars
