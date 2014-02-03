@@ -80,6 +80,9 @@ bindkey '^[[D' backward-char
 bindkey '^[[B' down-line-or-search
 bindkey '^[[C' forward-char
 
+# Nicer GREP colors
+export GREP_COLORS="fn=34:mc=01;30:ms=33:sl=21:cx=31"
+
 autoload edit-command-line
 zle -N edit-command-line
 
