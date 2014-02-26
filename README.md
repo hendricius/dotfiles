@@ -12,7 +12,7 @@ Option 2: Use the install.sh script to get started fast. This will backup your
 existing dotfiles and use mine instead.
 
     # Make sure to have the following installed:
-    apt-get install git vim zsh ack-grep tmux curl ctags
+    apt-get install git vim zsh ack-grep tmux curl ctags ack
     cd && git clone git://github.com/hendricius/dotfiles.git
     cd ~/dotfiles/
     git submodule init && git submodule update

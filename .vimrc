@@ -41,7 +41,9 @@ Bundle 'mattn/gist-vim'
 Bundle 'chriskempson/base16-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'edsono/vim-matchit'
+Bundle 'vim-scripts/ruby-matchit.git'
 Bundle 'danro/rename.vim'
+Bundle 'jc00ke/vim-tomdoc'
 
 execute pathogen#infect()
 
@@ -206,6 +208,7 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_files=0
 
 " Ignore jekyll site folder
 set wildignore+=*_site\/*

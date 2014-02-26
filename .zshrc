@@ -81,7 +81,12 @@ bindkey '^[[B' down-line-or-search
 bindkey '^[[C' forward-char
 
 # Nicer GREP colors
-export GREP_COLORS="fn=34:mc=01;30:ms=33:sl=21:cx=31"
+export GREP_OPTIONS='--color=auto'
+# For mac
+export GREP_COLOR='0;31'
+# For unix
+export GREP_COLORS="mc=00;36:ms=31:mt=01;38:ln=31"
+
 
 autoload edit-command-line
 zle -N edit-command-line
@@ -92,7 +97,7 @@ source ~/.zsh_aliases
 eval "$(rbenv init - zsh)"
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
-export TERM="screen-256color"
+export TERM="xterm-256color"
 
 # Config vars for other applications.
 source ~/.app_config_vars
