@@ -96,7 +96,7 @@ source ~/.zsh_aliases
 #eval "$(rbenv init -)"
 eval "$(rbenv init - zsh)"
 export LC_CTYPE=en_US.UTF-8
-export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export TERM="xterm-256color"
 
 # Config vars for other applications.

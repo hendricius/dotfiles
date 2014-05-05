@@ -9,6 +9,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'nono/jquery.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
@@ -239,7 +240,7 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 let mapleader = ","
 
-" Open the current Github link of the current line
+" Open the current Github file at the current line
 nnoremap <leader>o :.Gbrowse <CR>
 
 " Copy the current Github link of the current line
