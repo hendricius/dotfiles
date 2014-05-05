@@ -8,7 +8,6 @@ call vundle#rc()
 " let Vundle manage Vundle required!
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'nono/jquery.vim'
 Bundle 'scrooloose/nerdtree'
