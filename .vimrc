@@ -44,6 +44,9 @@ Bundle 'edsono/vim-matchit'
 Bundle 'vim-scripts/ruby-matchit.git'
 Bundle 'danro/rename.vim'
 Bundle 'jc00ke/vim-tomdoc'
+Bundle 'klen/python-mode.git'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'kien/tabman.vim'
 
 execute pathogen#infect()
 
@@ -205,10 +208,18 @@ set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
 
+" CtrlP Configuration
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
+map <c-b> :CtrlPBuffer<CR>
+
+
+" Tabman
+let g:tabman_toggle = '<c-o>'
+let g:tabman_focus  = '<c-i>'
+
 
 " Ignore jekyll site folder
 set wildignore+=*_site\/*
