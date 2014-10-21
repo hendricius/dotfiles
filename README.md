@@ -33,3 +33,13 @@ existing dotfiles and use mine instead.
 
     # Change shell to zsh
     chsh -s /bin/zsh
+
+Remember to restart your shell by either re-logging or reloading the shell by
+typing
+    exec $SHELL
+
+    # Install VIM-Plugins
+    -> open up vim
+    # Issue the following command
+    :PluginInstall
+
