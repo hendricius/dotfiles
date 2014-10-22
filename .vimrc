@@ -270,3 +270,6 @@ nnoremap <leader>oc :.Gbrowse! <CR>
 map ä <C-]>
 " and jump back on ö
 map ö <C-t>
+
+" bind K to Ag word under cursor
+nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
