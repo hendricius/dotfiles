@@ -18,3 +18,5 @@
 
 [github]
   user = Hendricius
+[push]
+	default = simple
