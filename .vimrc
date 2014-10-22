@@ -233,10 +233,6 @@ map <c-b> :CtrlPBuffer<CR>
 let g:tabman_toggle = '<c-o>'
 let g:tabman_focus  = '<c-i>'
 
-
-" Ignore jekyll site folder
-set wildignore+=*_site\/*
-
 " Paste toggle
 set pt=<f9>
 
