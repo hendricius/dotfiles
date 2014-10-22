@@ -46,7 +46,8 @@ Bundle 'danro/rename.vim'
 Bundle 'jc00ke/vim-tomdoc'
 Bundle 'klen/python-mode.git'
 Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'kien/tabman.vim'
+Bundle 'groenewege/vim-less'
+Bundle 'esneider/YUNOcommit.vim'
 
 execute pathogen#infect()
 
