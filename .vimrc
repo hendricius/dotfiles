@@ -163,8 +163,10 @@ set nobackup
 set nowb
 set noswapfile
 
-nmap t o<ESC>k
-nmap T O<ESC>j
+" new lines
+nnoremap <C-J> m`o<Esc>``
+nnoremap <C-K> m`O<Esc>``
+
 inoremap jj <Esc>
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
