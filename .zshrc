@@ -102,3 +102,5 @@ export TERM="xterm-256color"
 # Config vars for other applications.
 source ~/.app_config_vars
 source ~/.local_zsh_aliases
+. `brew --prefix`/etc/profile.d/z.sh
+# eval "$(boot2docker shellinit)"

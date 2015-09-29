@@ -9,7 +9,7 @@ cd
 REPO=dotfiles
 BASE_PATH=$(pwd)
 REPO_PATH=$BASE_PATH/$REPO
-FILES=( .gitconfig .gitignore_global .tmux.conf .vim .vimrc .zsh_aliases .zsh_autocomp .zshrc .oh-my-zsh .irssi .irbrc .irb-history)
+FILES=( .gitconfig .gitignore_global .tmux.conf .vim .vimrc .zsh_aliases .zsh_autocomp .zshrc .oh-my-zsh .irssi .irbrc .irb-history .agignore)
 BKP_DIR=dotfiles-backup
 
 # Create a backup dir.

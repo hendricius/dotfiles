@@ -48,6 +48,12 @@ Bundle 'klen/python-mode.git'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'groenewege/vim-less'
 Bundle 'esneider/YUNOcommit.vim'
+Bundle 'ngmy/vim-rubocop'
+Bundle 'tpope/vim-abolish'
+Bundle 'jnurmine/Zenburn'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'junegunn/vim-easy-align'
+Bundle 'altercation/vim-colors-solarized'
 
 execute pathogen#infect()
 
@@ -62,6 +68,9 @@ set background=dark
 " Color scheme
 set t_Co=256
 colorscheme base16-default
+" colorscheme solarized
+
+"colorscheme base-16-grayscale
 
 " Display line numbers
 set number
@@ -83,7 +92,7 @@ endif
 " differently from regular Vi. They are highly recommended though.
 "set showcmd    " Show (partial) command in status line.
 set showmatch   " Show matching brackets.
-set ignorecase    " Do case insensitive matching
+set ignorecase  " Do case insensitive matching
 set smartcase   " Do smart case matching
 set incsearch   " Incremental search
 set autowrite   " Automatically save before commands like :next and :make
@@ -142,17 +151,6 @@ set tabstop=2     "set tabstops
 set shiftwidth=2  "set shiftwidth
 set softtabstop=2 "delete this many spaces upon deleting soft tab
 
-" Zen Coding configuration
-let g:user_zen_settings = {
-\ 'php' : {
-\   'extends' : 'html',
-\   'filters' : 'c',
-\ },
-\ 'xml' : {
-\   'extends' : 'html',
-\ },
-\}
-
 " Refresh a file when modified from the outside
 set autoread
 
@@ -174,7 +172,7 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
-" i hate tabs, pls show em
+" show all linebreak chars.
 set list
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
@@ -226,28 +224,15 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " ag is fast enough that CtrlP doesn't need to cache
 let g:ctrlp_use_caching = 0
 
-map <c-b> :CtrlPBuffer<CR>
-
-
-" Tabman
-let g:tabman_toggle = '<c-o>'
-let g:tabman_focus  = '<c-i>'
-
 " Paste toggle
 set pt=<f9>
 
+" this turns off physical line wrapping (ie: automatic insertion of newlines)
+map <F10> <ESC>:set textwidth=0 wrapmargin=0<cr>
+imap <F10> <ESC>:set textwidth=0 wrapmargin=0<cr>a
+
 " different tab color
 hi TabLineSel ctermfg=Red ctermbg=Yellow
-
-function! PhpTabs()
-  set tabstop=4
-  set softtabstop=4
-  set shiftwidth=4
-  set smarttab
-  set expandtab
-  set autoindent
-  set smartindent
-endfunction
 
 " show a line if text is getting too long
 set colorcolumn=+1 " highlight column after 'textwidth'
@@ -273,3 +258,12 @@ map ö <C-t>
 
 " bind K to Ag word under cursor
 nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Fugive to open git status
+nnoremap <leader>gs :Gstatus<CR>
+
+" Autosave when focus lost.
+autocmd BufLeave,FocusLost * silent! wall
+
+" Toggle Nerdtree
+nnoremap <leader>N :NERDTreeToggle<CR>

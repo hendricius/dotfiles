@@ -34,9 +34,10 @@
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
 ehthumbs.db
 Thumbs.db
 
 # ignore ctags
 tags
+.capistrano
+.vagrant
