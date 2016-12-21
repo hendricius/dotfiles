@@ -24,7 +24,6 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
 *.sqlite
 
 # OS generated files #
@@ -38,6 +37,5 @@ ehthumbs.db
 Thumbs.db
 
 # ignore ctags
-tags
 .capistrano
 .vagrant

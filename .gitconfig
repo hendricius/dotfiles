@@ -13,6 +13,7 @@
   lg = !"git lg1"
   lg-pretty = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+  recent-branches = for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'
 
 
 [branch]
@@ -26,3 +27,7 @@
   rebase = true
 [rerere]
   enabled = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

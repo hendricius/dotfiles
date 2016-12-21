@@ -1,15 +1,13 @@
 # Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
 # Node
 export PATH="/usr/local/share/npm/bin:$PATH"
 # Heroku toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-# Cabal Path
-export PATH="/Users/hendricius/.cabal/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/Cellar/openssl/1.0.2j/bin:$PATH"
 
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -93,14 +91,23 @@ zle -N edit-command-line
 
 # Custom aliases
 source ~/.zsh_aliases
-#eval "$(rbenv init -)"
-eval "$(rbenv init - zsh)"
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export TERM="xterm-256color"
 
 # Config vars for other applications.
 source ~/.app_config_vars
 source ~/.local_zsh_aliases
 . `brew --prefix`/etc/profile.d/z.sh
 # eval "$(boot2docker shellinit)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# allow more open files on OSX
+ulimit -n 200000
+ulimit -u 2048
+
+# For the SSH agent add my keyfile
+ssh-add ~/.ssh/id_rsa
+
+eval "$(rbenv init -)"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export TERM="xterm-256color"

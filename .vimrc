@@ -2,58 +2,67 @@ filetype off
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle required!
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'rking/ag.vim'
-Bundle 'nono/jquery.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'ervandew/supertab'
-Bundle 'godlygeek/tabular'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'timcharper/textile.vim'
-Bundle 'ap/vim-css-color'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-haml'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-markdown'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'tpope/vim-rails'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'goldfeld/vim-seek'
-Bundle 'slim-template/vim-slim'
-Bundle 'tpope/vim-surround'
-Bundle 'sukima/xmledit'
-Bundle 'mattn/emmet-vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'scrooloose/syntastic'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'kaichen/vim-snipmate-ruby-snippets'
-Bundle 'mattn/gist-vim'
-Bundle 'chriskempson/base16-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'edsono/vim-matchit'
-Bundle 'vim-scripts/ruby-matchit.git'
-Bundle 'danro/rename.vim'
-Bundle 'jc00ke/vim-tomdoc'
-Bundle 'klen/python-mode.git'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'groenewege/vim-less'
-Bundle 'esneider/YUNOcommit.vim'
-Bundle 'ngmy/vim-rubocop'
-Bundle 'tpope/vim-abolish'
-Bundle 'jnurmine/Zenburn'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'altercation/vim-colors-solarized'
+Plug 'gmarik/vundle'
+Plug 'rking/ag.vim'
+Plug 'nono/jquery.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'tomtom/tcomment_vim'
+Plug 'timcharper/textile.vim'
+Plug 'ap/vim-css-color'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-haml'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-markdown'
+Plug 'Lokaltog/vim-powerline'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'goldfeld/vim-seek'
+Plug 'tpope/vim-surround'
+Plug 'sukima/xmledit'
+Plug 'mattn/emmet-vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'kaichen/vim-snipmate-ruby-snippets'
+Plug 'mattn/gist-vim'
+Plug 'chriskempson/base16-vim'
+Plug 'mattn/webapi-vim'
+Plug 'edsono/vim-matchit'
+Plug 'danro/rename.vim'
+Plug 'jc00ke/vim-tomdoc'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'groenewege/vim-less'
+Plug 'esneider/YUNOcommit.vim'
+Plug 'ngmy/vim-rubocop'
+Plug 'tpope/vim-abolish'
+Plug 'jnurmine/Zenburn'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/vim-easy-align'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'splitjoin.vim'
+Plug 'scrooloose/syntastic'
+Plug 'slim-template/vim-slim'
+Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'davydovanton/vim-html2slim'
+Plug 'ck3g/vim-change-hash-syntax'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'junegunn/vim-emoji'
+
+call plug#end()
 
 execute pathogen#infect()
 
@@ -99,25 +108,6 @@ set autowrite   " Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
 set mouse=a   " Enable mouse usage (all modes)
 
-
-" Smart completion
-function! SmartComplete()
-  let line = getline('.')                         " curline
-  let substr = strpart(line, -1, col('.')+1)      " from start to cursor
-  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  let has_period = match(substr, '\.') != -1      " position of period, if any
-  let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  if (!has_period && !has_slash)
-    return "\<C-X>\<C-P>"                         " existing text matching
-  elseif ( has_slash )
-    return "\<C-X>\<C-F>"                         " file matching
-  else
-    return "\<C-X>\<C-O>"                         " plugin matching
-  endif
-endfunction
-
-" Call smart completion when pressing Ctrl-Space
-inoremap <C-Space> <c-r>=SmartComplete()<CR>
 imap <C-@> <C-Space>
 
 set textwidth=78
@@ -217,12 +207,28 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_match_window = 'bottom,order:ttb,min:10,max:10'
 
 " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command =
+  \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
 
+"
 " ag is fast enough that CtrlP doesn't need to cache
+"
 let g:ctrlp_use_caching = 0
+
+" Default to filename searches - so that appctrl will find application
+" controller
+" let g:ctrlp_by_filename = 1
+
+" Don't jump to already open window. This is annoying if you are maintaining
+" several Tab workspaces and want to open two windows into the same file.
+let g:ctrlp_switch_buffer = 0
+
+" Additional mapping for buffer search
+nnoremap <silent> ,b :CtrlPBuffer<cr>
 
 " Paste toggle
 set pt=<f9>
@@ -252,12 +258,12 @@ nnoremap <leader>oc :.Gbrowse! <CR>
 
 " CTAGS quirks for German keyboard
 " jump to tag on ä In normal mode
-map ä <C-]>
+" map ä <C-]>
 " and jump back on ö
-map ö <C-t>
+" map ö <C-t>
 
 " bind K to Ag word under cursor
-nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap K :Ag <C-R><C-W><CR>:cw<CR>
 
 " Fugive to open git status
 nnoremap <leader>gs :Gstatus<CR>
@@ -267,3 +273,23 @@ autocmd BufLeave,FocusLost * silent! wall
 
 " Toggle Nerdtree
 nnoremap <leader>N :NERDTreeToggle<CR>
+nnoremap <leader>M :NERDTreeFind<CR>
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
+
+" Backspace should behave normally
+set backspace=indent,eol,start
+
+" shortcut for searching files
+map <c-l> :FZF<CR>
+
+set rtp+=/usr/local/opt/fzf
+
+" emoji auto complete
+set completefunc=emoji#complete
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)

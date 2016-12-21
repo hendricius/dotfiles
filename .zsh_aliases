@@ -10,6 +10,8 @@ alias gad='git add'
 alias gap='git add --patch'
 alias gri='git rebase -i'
 alias grh='git reset HEAD'
+alias gva='vim `git ls-files --others --exclude-standard`'
+alias gve='vim `git diff --name-only HEAD`'
 
 # General aliases
 alias be='bundle exec'
