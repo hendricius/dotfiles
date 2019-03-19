@@ -30,3 +30,7 @@ alias zlog="git log --all --author='Hendrik' --reverse --format=%B --max-count=8
 alias log-today="vim $(date +%Y-%m-%d).md"
 
 alias f="find . -type f -name"
+
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+alias ctags="`brew --prefix`/bin/ctags"
