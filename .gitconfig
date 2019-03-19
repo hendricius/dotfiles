@@ -15,19 +15,14 @@
   cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
   recent-branches = for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'
 
-
 [branch]
   autosetuprebase = always
 
 [github]
-  user = Hendricius
+  user = hendricius
 [push]
   default = simple
 [pull]
   rebase = true
 [rerere]
   enabled = true
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true

@@ -1,11 +1,7 @@
 # Path to your oh-my-zsh configuration.
 # Node
-export PATH="/usr/local/share/npm/bin:$PATH"
-# Heroku toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/Cellar/openssl/1.0.2j/bin:$PATH"
 
 export ZSH=$HOME/.oh-my-zsh
 
@@ -89,25 +85,42 @@ export GREP_COLORS="mc=00;36:ms=31:mt=01;38:ln=31"
 autoload edit-command-line
 zle -N edit-command-line
 
-# Custom aliases
-source ~/.zsh_aliases
-
 # Config vars for other applications.
-source ~/.app_config_vars
-source ~/.local_zsh_aliases
 . `brew --prefix`/etc/profile.d/z.sh
 # eval "$(boot2docker shellinit)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# allow more open files on OSX
-ulimit -n 200000
-ulimit -u 2048
-
 # For the SSH agent add my keyfile
-ssh-add ~/.ssh/id_rsa
+# ssh-add ~/.ssh/id_rsa
 
-eval "$(rbenv init -)"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM="xterm-256color"
+
+# pyenv init
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# rbenv init
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# go
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$HOME/.composer/vendor/bin
+
+# Custom aliases
+source ~/.zsh_aliases
+
+# Open up gem
+bvim() {
+  vim `bundle show $1`
+}
+
+# use FD for fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
