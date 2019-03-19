@@ -2,7 +2,12 @@ filetype off
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-call plug#begin('~/.vim/plugged')
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin()
 
 " let Vundle manage Vundle required!
 Plug 'gmarik/vundle'
@@ -19,13 +24,19 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-haml'
-Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-markdown'
-Plug 'Lokaltog/vim-powerline'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rbenv'
+Plug 'pangloss/vim-javascript'
+Plug 'Lokaltog/vim-powerline'
 Plug 'vim-ruby/vim-ruby'
 Plug 'goldfeld/vim-seek'
-Plug 'tpope/vim-surround'
 Plug 'sukima/xmledit'
 Plug 'mattn/emmet-vim'
 Plug 'kchmck/vim-coffee-script'
@@ -34,33 +45,41 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'kaichen/vim-snipmate-ruby-snippets'
 Plug 'mattn/gist-vim'
+Plug 'mattn/gist-vim'
 Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
 Plug 'mattn/webapi-vim'
-Plug 'edsono/vim-matchit'
+Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'danro/rename.vim'
 Plug 'jc00ke/vim-tomdoc'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'groenewege/vim-less'
 Plug 'esneider/YUNOcommit.vim'
 Plug 'ngmy/vim-rubocop'
-Plug 'tpope/vim-abolish'
 Plug 'jnurmine/Zenburn'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/vim-easy-align'
-Plug 'altercation/vim-colors-solarized'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-commentary'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'splitjoin.vim'
+Plug 'https://github.com/AndrewRadev/splitjoin.vim.git'
 Plug 'scrooloose/syntastic'
 Plug 'slim-template/vim-slim'
 Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'davydovanton/vim-html2slim'
 Plug 'ck3g/vim-change-hash-syntax'
-" Plug 'Valloric/YouCompleteMe'
 Plug 'junegunn/vim-emoji'
+Plug 'StanAngeloff/php.vim'
+Plug 'jwalton512/vim-blade'
+Plug 'exu/pgsql.vim'
+Plug 'autowitch/hive.vim'
+Plug 'henrik/vim-reveal-in-finder'
+Plug 'evidens/vim-twig'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'ElmCast/elm-vim'
+Plug 'othree/html5.vim'
+Plug 'isRuslan/vim-es6'
+Plug 'scrooloose/nerdcommenter'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -73,11 +92,12 @@ endif
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
+" set background=light
 
 " Color scheme
 set t_Co=256
 colorscheme base16-default
-" colorscheme solarized
+"colorscheme solarized
 
 "colorscheme base-16-grayscale
 
@@ -248,6 +268,9 @@ highlight ColorColumn ctermbg=234
 " Copy gists to clipboard by default
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
+let g:gist_post_private = 1
+
+" Change default leader
 let mapleader = ","
 
 " Open the current Github file at the current line
@@ -258,9 +281,9 @@ nnoremap <leader>oc :.Gbrowse! <CR>
 
 " CTAGS quirks for German keyboard
 " jump to tag on ä In normal mode
-" map ä <C-]>
+map ö <C-]>
 " and jump back on ö
-" map ö <C-t>
+map ä <C-t>
 
 " bind K to Ag word under cursor
 nnoremap K :Ag <C-R><C-W><CR>:cw<CR>
@@ -293,3 +316,15 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" disable sql plugin
+let g:loaded_sql_completion = 0
+let g:omni_sql_no_default_maps = 1
+
+" NerdCommenter
+let g:NERDSpaceDelims = 1 " Space after comments
+let g:NERDDefaultAlign = 'left' " Put comment delimiters to left instead
+let g:NERDTrimTrailingWhitespace = 1
+
+" Make sure we properly detect hive scripts
+au BufNewFile,BufRead *.hql set filetype=hive expandtab
