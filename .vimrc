@@ -73,6 +73,7 @@ Plug 'isRuslan/vim-es6'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rust-lang/rust.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -144,11 +145,6 @@ imap <F2> <ESC>:set spelllang=en_us spell<cr>a
 imap <F3> <ESC>:set spelllang=de spell<cr>a
 imap <F4> <ESC>:set spell<cr>a
 imap <F5> <ESC>:set nospell<cr>a
-
-set expandtab     "soft tabs
-set tabstop=2     "set tabstops
-set shiftwidth=2  "set shiftwidth
-set softtabstop=2 "delete this many spaces upon deleting soft tab
 
 " Refresh a file when modified from the outside
 set autoread
