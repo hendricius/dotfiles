@@ -2,6 +2,7 @@ filetype off
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+" Install plug.vim
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -41,21 +42,14 @@ Plug 'sukima/xmledit'
 Plug 'mattn/emmet-vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'kaichen/vim-snipmate-ruby-snippets'
-Plug 'mattn/gist-vim'
 Plug 'mattn/gist-vim'
 Plug 'chriskempson/base16-vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'mattn/webapi-vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'danro/rename.vim'
 Plug 'jc00ke/vim-tomdoc'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'groenewege/vim-less'
 Plug 'esneider/YUNOcommit.vim'
-Plug 'ngmy/vim-rubocop'
 Plug 'jnurmine/Zenburn'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/vim-easy-align'
@@ -69,7 +63,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ck3g/vim-change-hash-syntax'
 Plug 'junegunn/vim-emoji'
 Plug 'StanAngeloff/php.vim'
-Plug 'jwalton512/vim-blade'
 Plug 'exu/pgsql.vim'
 Plug 'autowitch/hive.vim'
 Plug 'henrik/vim-reveal-in-finder'
@@ -83,8 +76,6 @@ Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
-execute pathogen#infect()
-
 if has("syntax")
   syntax on
 endif
@@ -96,10 +87,11 @@ set background=dark
 
 " Color scheme
 set t_Co=256
-colorscheme base16-default
-"colorscheme solarized
-
-"colorscheme base-16-grayscale
+" Sometimes needed for some terminals:
+" let base16colorspace=256
+colorscheme base16-default-dark
+" colorscheme solarized
+" colorscheme base-16-grayscale
 
 " Display line numbers
 set number
@@ -119,7 +111,7 @@ endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-"set showcmd    " Show (partial) command in status line.
+" set showcmd    " Show (partial) command in status line.
 set showmatch   " Show matching brackets.
 set ignorecase  " Do case insensitive matching
 set smartcase   " Do smart case matching
@@ -152,9 +144,6 @@ imap <F2> <ESC>:set spelllang=en_us spell<cr>a
 imap <F3> <ESC>:set spelllang=de spell<cr>a
 imap <F4> <ESC>:set spell<cr>a
 imap <F5> <ESC>:set nospell<cr>a
-
-" Snipmate info
-let g:snips_author = 'Hendrik Kleinwaechter'
 
 set expandtab     "soft tabs
 set tabstop=2     "set tabstops
@@ -297,8 +286,6 @@ autocmd BufLeave,FocusLost * silent! wall
 " Toggle Nerdtree
 nnoremap <leader>N :NERDTreeToggle<CR>
 nnoremap <leader>M :NERDTreeFind<CR>
-
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
 
 " Backspace should behave normally
 set backspace=indent,eol,start
