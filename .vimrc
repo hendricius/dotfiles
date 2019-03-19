@@ -35,7 +35,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rbenv'
 Plug 'pangloss/vim-javascript'
-Plug 'Lokaltog/vim-powerline'
 Plug 'vim-ruby/vim-ruby'
 Plug 'goldfeld/vim-seek'
 Plug 'sukima/xmledit'
@@ -73,6 +72,7 @@ Plug 'othree/html5.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rust-lang/rust.vim'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
