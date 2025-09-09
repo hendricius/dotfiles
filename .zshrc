@@ -1,5 +1,6 @@
-# Path to your oh-my-zsh configuration.
-# Node
+if [ -d "/opt/homebrew/bin" ]; then
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+fi
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
@@ -32,7 +33,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 # Misc exports
-export EDITOR=/usr/local/bin/vim
+export EDITOR=vim
 export PAGER=less
 
 # Autoloads
@@ -85,8 +86,6 @@ export GREP_COLORS="mc=00;36:ms=31:mt=01;38:ln=31"
 autoload edit-command-line
 zle -N edit-command-line
 
-# Config vars for other applications.
-. `brew --prefix`/etc/profile.d/z.sh
 # eval "$(boot2docker shellinit)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -107,6 +106,10 @@ eval "$(pyenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 # go
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
@@ -116,11 +119,6 @@ export PATH=$PATH:$HOME/.composer/vendor/bin
 
 # Custom aliases
 source ~/.zsh_aliases
-
-# Open up gem
-bvim() {
-  vim `bundle show $1`
-}
 
 # use FD for fzf
 export FZF_DEFAULT_COMMAND='fd --type f'

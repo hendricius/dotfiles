@@ -1,45 +1,68 @@
+```
+________          __    _____.__.__                 
+\______ \   _____/  |__/ ____\__|  |   ____   ______
+ |    |  \ /  _ \   __\   __\|  |  | _/ __ \ /  ___/
+ |    `   (  <_> )  |  |  |  |  |  |_\  ___/ \___ \ 
+/_______  /\____/|__|  |__|  |__|____/\___  >____  >
+        \/                                \/     \/ 
+```
+
 # Personal dotfiles
 
-My personal dotfiles I use between my systems. Perfect for sharing the same
-editor/config on your servers/local machine. Contains my preferred ruby vim
-plugins.
+Opinionated dotfiles to keep my shell/editor setup consistent across machines.
 
-# Setup
+## Dependencies
 
-Option 1: Copy paste the respective folders to your home folder.
+Make sure you have these available (install as needed):
 
-Option 2: Use the install.sh script to get started fast. This will backup your
-existing dotfiles and use mine instead.
+- pynev
+- rbenv
+- nvm
+- oh-my-zsh
 
-    # Make sure to have the following installed:
-    apt-get install git vim zsh ack-grep tmux curl ctags silversearcher-ag
+oh-my-zsh must be installed prior to running the installer; this repo does not install it.
 
-    # Download dotfiles
-    cd && git clone git://github.com/hendricius/dotfiles.git
-    cd ~/dotfiles/
-    # Init submodules for oh-my-zsh and VIM
-    git submodule init && git submodule update
+## Quick start
 
-    # Run installation script that copies all files into the correct location
-    ./install.sh
+If you already have the repo locally:
 
-    # Create a file that is automatically included where you can put ENV variables for your scripts.
-    cd
-    touch .app_config_vars
+    make install
 
-    # Install rbenv and ruby build if you need it
-    git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-    git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+Or clone then install:
 
-    # Change shell to zsh
-    chsh -s /bin/zsh
+    cd ~
+    git clone <REPO_URL> dotfiles
+    cd ~/dotfiles
+    make install
 
-Remember to restart your shell by either re-logging or reloading the shell by
-typing
-    exec $SHELL
+## What the installer does
 
-    # Install VIM-Plugins
-    -> open up vim
-    # Issue the following command
-    :PluginInstall
+- Copies all files from this repo into your home directory
+- Backs up any overwritten files to `~/dotfiles-backup-<timestamp>`
+- Skips version-control and helper files
 
+## After install (optional)
+
+- Switch your login shell to zsh, if not already:
+
+      chsh -s /bin/zsh
+      exec $SHELL
+
+- Install Vim plugins:
+
+      # open Vim, then run
+      :PluginInstall
+
+## Updating
+
+Pull the latest changes and run the installer again:
+
+    git pull
+    make install
+
+## Restoring from backup
+
+The installer saves overwritten files in `~/dotfiles-backup-<timestamp>`. To restore the most recent backup:
+
+    LATEST_BACKUP=$(ls -dt ~/dotfiles-backup-* | head -1)
+    rsync -aH "$LATEST_BACKUP"/ "$HOME"/
